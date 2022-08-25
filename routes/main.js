@@ -112,7 +112,7 @@ router.route('/vouchershow')
         res.send(vouchers)
     })
 
-router.get('/play', (req, res) => {
+router.get('/', (req, res) => {
     console.log(process.env.TZ); // undefined
     res.send(new Date().toString());
 })
