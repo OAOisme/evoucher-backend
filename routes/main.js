@@ -14,6 +14,21 @@ router.post('/login', async (req, res) => {
     }
 })
 
+router.get('/delete/:id', async (req, res) => {
+    console.log("YES")
+    try {
+        const { id } = req.params
+        const voucher = await Voucher.findById(id)
+        voucher.status = 'declined'
+        await voucher.save()
+        res.send("Success")
+    } catch (err) {
+        console.log(err)
+        res.status(500).send(err)
+    }
+})
+
+
 router.route('/pending')
     .get(async (req, res) => {
         try {
@@ -107,19 +122,6 @@ router.route('/voucher/:id')
         }
     })
 
-router.get('/delete/:id')
-    .get(async (req, res) => {
-        try {
-            const { id } = req.params
-            const voucher = await Voucher.findById(id)
-            voucher.status = 'declined'
-            await voucher.save()
-            res.send("Success")
-        } catch (err) {
-            console.log(err)
-            res.status(500).send(err)
-        }
-    })
 
 
 
