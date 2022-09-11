@@ -107,6 +107,18 @@ router.route('/voucher/:id')
         }
     })
 
+router.get('/delete/:id')
+    .get(async (req, res) => {
+        try {
+            const { id } = req.params
+            const voucher = await Voucher.findById(id)
+            voucher.status = 'declined'
+            res.send("Success")
+        } catch (err) {
+            res.status(500).send(err)
+        }
+    })
+
 
 
 router.route('/vouchershow/:id')
