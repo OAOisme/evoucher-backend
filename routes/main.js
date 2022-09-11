@@ -116,6 +116,7 @@ router.get('/delete/:id')
             await voucher.save()
             res.send("Success")
         } catch (err) {
+            console.log(err)
             res.status(500).send(err)
         }
     })
