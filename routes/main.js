@@ -113,6 +113,7 @@ router.get('/delete/:id')
             const { id } = req.params
             const voucher = await Voucher.findById(id)
             voucher.status = 'declined'
+            await voucher.save()
             res.send("Success")
         } catch (err) {
             res.status(500).send(err)
