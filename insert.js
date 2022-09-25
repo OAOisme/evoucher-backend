@@ -9,7 +9,7 @@ const user = new User({
 
 });
 
-mongoose.connect('mongodb+srv://motunrayo:mabel1975@voucher.zbmxmgv.mongodb.net/test', { useNewUrlParser: true })
+mongoose.connect('MONGO URI', { useNewUrlParser: true })
     .then(() => {
         console.log('Connected to MongoDB')
 

@@ -6,7 +6,13 @@ require('dotenv').config()
 
 const app = express()
 
-mongoose.connect('mongodb+srv://motunrayo:mabel1975@voucher.zbmxmgv.mongodb.net/test', { useNewUrlParser: true })
+/*
+    RUN INSERT.JS first
+    run this file then add a new admin user
+    then delete the decoy account
+*/
+
+mongoose.connect('MONGO URI', { useNewUrlParser: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to MongoDB', err))
 
