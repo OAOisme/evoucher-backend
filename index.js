@@ -12,7 +12,7 @@ const app = express()
     then delete the decoy account
 */
 
-mongoose.connect('MONGO URI', { useNewUrlParser: true })
+mongoose.connect(process.env.URI, { useNewUrlParser: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to MongoDB', err))
 
